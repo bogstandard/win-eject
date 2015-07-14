@@ -1,0 +1,35 @@
+{
+  "name": "win-eject",
+  "version": "1.0.2",
+  "description": "Win-Eject is a binding for DVD and CD drives. It currently only supports Windows and is dependent on VBScript. Inspired by DiscDrive",
+  "main": "win-eject.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bogstandard/win-eject"
+  },
+  "keywords": [
+    "windows",
+    "eject",
+    "drive",
+    "disc",
+    "open",
+    "close"
+  ],
+  "author": {
+    "name": "BogStandard"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bogstandard/win-eject/issues"
+  },
+  "homepage": "https://github.com/bogstandard/win-eject",
+  "readme": "Win-Eject\r\n=========\r\n\r\nWin-Eject is a binding for DVD and CD drives. It currently only supports Windows and is dependent on VBScript. Inspired by [DiscDrive](https://github.com/brendanashworth/diskdrive) for OSX & Linux.\r\n\r\n## Documentation\r\n\r\n#### Drives: `function([callback]);`\r\nArgument is of type `Function`. It is always called upon completion. The argument sent to this callback function is an Object listing available drives.\r\n\r\nExample usage:\r\n```javascript\r\nvar winEject = require('win-eject');\r\n\r\n// Get list of drives availiable\r\nwinEject.drives(function(drives){\r\n    console.log(drives);\r\n});\r\n```\r\n\r\n\r\n#### Eject: `function([id/mount], [callback]);`\r\nFirst argument can be of type `string`. It specifies the mount / ID of the disk drive to eject. If no drive is specified or the string is blank `''` then *all* drives will be opened.\r\n\r\nSecond argument is of type `Function`. It is always called upon completion. This callback function is optional.\r\n\r\nExample usage:\r\n```javascript\r\n// Eject all available disk drives.\r\n// Note lack of callback (optional)\r\nwinEject.eject();\r\n\r\n```\r\n```javascript\r\n// Eject disk of [drive].\r\nwinEject.eject('E:', function() {\r\n\tconsole.log('Disc Drive E: ejected!');\r\n});\r\n\r\n```\r\n\r\n#### Close: `function([id/mount], [callback]);`\r\nFirst argument is of type `string`. It specifies the mount / ID of the disk drive to eject. If no drive is specified or the string is blank `''` then *all* drives will be closed.\r\n\r\nSecond argument is of type `Function`. It is always called upon completion. This callback function is optional.\r\n\r\n**Warning: Close is a hacky solution & has smelly code. This is built on a workaround within VBScript to counter a flaw of VBScript. This function will not work on drives which must be manually close (eg. Laptop drives).**\r\n\r\nExample usage:\r\n```javascript\r\n// Close all available disk drives.\r\n// Note lack of callback (optional)\r\nwinEject.close();\r\n```\r\n\r\n```javascript\r\n// Close disk of [drive].\r\nwinEject.close('E:', function() {\r\n\tconsole.log('Disc Drive E: close!');\r\n});\r\n\r\n```\r\n\r\n### Compatibility\r\nCurrently, only Windows 7 has been tested and confirmed to work. On going testing is required.",
+  "readmeFilename": "README.md",
+  "gitHead": "79c245721a2822bd2208fc7301f6087c02cb02aa",
+  "_id": "win-eject@1.0.1",
+  "_shasum": "4c81de37449c4dc8fc15b306dbec07eadee0c852",
+  "_from": "win-eject@*"
+}

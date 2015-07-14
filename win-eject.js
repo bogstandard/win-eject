@@ -5,15 +5,15 @@ function execute(command, callback){
 };
 
 module.exports.drives = function(callback){
-    execute("Cscript //nologo drive-hack.vbs",function(json){
+    execute("Cscript //nologo node_modules/win-eject/drivehack.vbs",function(json){
             callback(JSON.parse(json));
         });
 };
 module.exports.eject = function(drive,callback){
     drive = ' '+drive || ''; callback=callback||function(){};
-    execute("Cscript //nologo drive-hack.vbs open"+drive,callback);    
+    execute("Cscript //nologo node_modules/win-eject/drivehack.vbs open"+drive,callback);    
 };
 module.exports.close = function(drive,callback){
     drive = ' '+drive || ''; callback=callback||function(){};
-    execute("Cscript //nologo drive-hack.vbs close"+drive,callback);
+    execute("Cscript //nologo node_modules/win-eject/drivehack.vbs close"+drive,callback);
 };
