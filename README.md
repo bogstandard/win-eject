@@ -62,4 +62,4 @@ winEject.close('E:', function() {
 ```
 
 ### Compatibility
-Currently, only Windows 7 has been tested and confirmed to work. On going testing is required.
+Currently, only Windows 7, 8 & 8.1 have been tested and confirmed to work. On going testing is required.
